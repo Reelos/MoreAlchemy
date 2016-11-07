@@ -1,0 +1,4 @@
+name: MoreAlchemy
+main: de.reelos.alchemy.MoreAlchemy
+version: 1.0 SNAP
+commands:

@@ -1,0 +1,14 @@
+
+#gradle
+/build/
+/.gradle/
+/gradle.properties
+
+#eclipse
+.project
+.classpath
+/.settings/
+/bin/
+
+#other
+/lib/

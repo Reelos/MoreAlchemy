@@ -1,0 +1,37 @@
+
+apply plugin: 'java-library-distribution'
+apply plugin: 'eclipse'
+
+group = 'org.reelos.spigot'
+version = '1.0.0'
+
+sourceCompatibility = 1.8	
+
+repositories {
+	mavenCentral()
+	maven {
+		url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+	}
+	maven {
+		url 'http://maven.elmakers.com/repository/'
+	}
+}
+
+dependencies {
+	compileOnly 'org.spigotmc:spigot-api:1.8+'
+	
+	testCompile 'junit:junit:4.12'
+}
+
+jar {
+	manifest {
+		attributes 'Class-Path' : project.configurations.runtime
+				.collect{ file -> "lib/${file.name}" }
+				.sort{ it.toLowerCase() }
+				.join(' ')
+	}
+}
+
+tasks.withType(Tar) {
+	compression = Compression.GZIP
+}
